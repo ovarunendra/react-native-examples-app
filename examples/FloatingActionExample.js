@@ -4,45 +4,40 @@ import { View, Text, StyleSheet, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { FloatingAction } from 'react-native-floating-action';
 
+const actions = [
+  {
+    text: 'Accessibility',
+    icon: require('../images/ic_accessibility_white.png'),
+    name: 'bt_accessibility',
+    position: 2
+  },
+  {
+    text: 'Language',
+    icon: <Icon name="language" size={20} style={{ color: '#fff' }} />,
+    name: 'bt_language',
+    position: 1
+  },
+  {
+    text: 'Location',
+    icon: <Icon name="location-arrow" size={20} style={{ color: '#fff' }} />,
+    name: 'bt_room',
+    position: 3
+  },
+  {
+    text: 'Video',
+    icon: <Icon name="video-camera" size={20} style={{ color: '#fff' }} />,
+    name: 'bt_videocam',
+    position: 4
+  }
+];
+
 // create a component
 class FloatingActionExample extends Component {
-  renderMainButton = () => {
-    return (
-      <View style={styles.overlay}>
-        <Icon name="home" size={100} />
-      </View>
-    );
+  static navigationOptions = {
+    title: 'Floating Action Example'
   };
+
   render() {
-    const actions = [
-      {
-        text: 'Accessibility',
-        icon: require('../images/ic_accessibility_white.png'),
-        name: 'bt_accessibility',
-        position: 2
-      },
-      {
-        text: 'Language',
-        icon: <Icon name="language" size={20} style={{ color: '#fff' }} />,
-        name: 'bt_language',
-        position: 1
-      },
-      {
-        text: 'Location',
-        icon: (
-          <Icon name="location-arrow" size={20} style={{ color: '#fff' }} />
-        ),
-        name: 'bt_room',
-        position: 3
-      },
-      {
-        text: 'Video',
-        icon: <Icon name="video-camera" size={20} style={{ color: '#fff' }} />,
-        name: 'bt_videocam',
-        position: 4
-      }
-    ];
-    console.log(React.isValidElement(<Icon name="home" size={100} />));
     return (
       <View style={styles.container}>
         <Text style={{ color: '#fff', fontSize: 20 }}>

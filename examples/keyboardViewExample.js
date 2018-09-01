@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -7,19 +7,25 @@ import {
   TextInput,
   KeyboardAvoidingView,
   ScrollView
-} from "react-native";
+} from 'react-native';
 
 // create a component
 class KeyboardViewExample extends Component {
-  state = {
-    first: "",
-    second: ""
+  static navigationOptions = {
+    title: 'Keyboard View Example'
   };
+
+  state = {
+    first: '',
+    second: ''
+  };
+
   render() {
     return (
       <KeyboardAvoidingView
         enabled
         behavior="padding"
+        keyboardVerticalOffset={60}
         style={{ marginVertical: 20 }}
       >
         <ScrollView>
@@ -55,22 +61,22 @@ class KeyboardViewExample extends Component {
 // define your styles
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center"
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   box: {
     height: 200,
     width: 300,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "gray",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'gray',
     marginVertical: 20
   },
   textInput: {
     height: 40,
     width: 200,
-    borderColor: "gray",
+    borderColor: 'gray',
     borderWidth: 1
   }
 });
