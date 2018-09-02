@@ -1,4 +1,5 @@
 import KeyboardViewExample from './keyboardViewExample';
 import FloatingActionExample from './FloatingActionExample';
+import VictoryChartExample from './VictoryChartExample';
 
-export { KeyboardViewExample, FloatingActionExample };
+export { KeyboardViewExample, FloatingActionExample, VictoryChartExample };

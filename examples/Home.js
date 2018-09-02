@@ -14,7 +14,8 @@ const { width } = Dimensions.get('window');
 
 const examples = [
   { title: 'Keyboard Avoid View', key: 'KeyboardView' },
-  { title: 'Floating Action', key: 'FloatingView' }
+  { title: 'Floating Action', key: 'FloatingView' },
+  { title: 'Victory Charts', key: 'VictoryView' }
 ];
 
 // create a component
