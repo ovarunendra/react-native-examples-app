@@ -7,37 +7,45 @@ import {
   FlatList,
   Platform,
   TouchableHighlight,
-  Dimensions
+  Dimensions,
 } from 'react-native';
+import { NavigationScreenProp } from 'react-navigation';
 
 const { width } = Dimensions.get('window');
 
 const examples = [
   { title: 'Keyboard Avoid View', key: 'KeyboardView' },
   { title: 'Floating Action', key: 'FloatingView' },
-  { title: 'Victory Charts', key: 'VictoryView' }
+  { title: 'Victory Charts', key: 'VictoryView' },
 ];
 
+export interface Props {
+  navigation: NavigationScreenProp<any, any>;
+}
+
 // create a component
-class Home extends Component {
+class Home extends Component<Props, object> {
   static navigationOptions = {
-    title: 'Examples'
+    title: 'Examples',
   };
 
-  _onPress = item => {
+  _onPress = (item: any) => {
     return this.props.navigation.navigate(item.key);
+  };
+
+  _renderSeparator = (rowData: any) => {
+    const { highlighted } = rowData;
+    if (Platform.OS !== 'android' && highlighted) {
+      return <View style={[highlighted && { marginLeft: 0 }]} />;
+    }
+    return null;
   };
 
   render() {
     return (
       <View style={styles.container}>
         <FlatList
-          ItemSeparatorComponent={
-            Platform.OS !== 'android' &&
-            (({ highlighted }) => (
-              <View style={[highlighted && { marginLeft: 0 }]} />
-            ))
-          }
+          ItemSeparatorComponent={this._renderSeparator}
           data={examples}
           renderItem={({ item, separators }) => (
             <TouchableHighlight
@@ -62,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2c3e50'
+    backgroundColor: '#2c3e50',
   },
   text: {
     backgroundColor: 'white',
@@ -71,8 +79,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 1
-  }
+    marginVertical: 1,
+  },
 });
 
 //make this component available to the app

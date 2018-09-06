@@ -6,18 +6,23 @@ import {
   StyleSheet,
   TextInput,
   KeyboardAvoidingView,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 
+interface State {
+  first: string;
+  second: string;
+}
+
 // create a component
-class KeyboardViewExample extends Component {
+class KeyboardViewExample extends Component<object, State> {
   static navigationOptions = {
-    title: 'Keyboard View Example'
+    title: 'Keyboard View Example',
   };
 
   state = {
     first: '',
-    second: ''
+    second: '',
   };
 
   render() {
@@ -63,7 +68,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   box: {
     height: 200,
@@ -71,14 +76,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'gray',
-    marginVertical: 20
+    marginVertical: 20,
   },
   textInput: {
     height: 40,
     width: 200,
     borderColor: 'gray',
-    borderWidth: 1
-  }
+    borderWidth: 1,
+  },
 });
 
 //make this component available to the app

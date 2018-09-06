@@ -4,14 +4,14 @@ import Home from './examples/Home';
 import {
   FloatingActionExample,
   KeyboardViewExample,
-  VictoryChartExample
+  VictoryChartExample,
 } from './examples';
 
 const RootStack = createStackNavigator({
   Home,
   FloatingView: FloatingActionExample,
   KeyboardView: KeyboardViewExample,
-  VictoryView: VictoryChartExample
+  VictoryView: VictoryChartExample,
 });
 
 export default class App extends Component {
